@@ -1,5 +1,7 @@
 ﻿using EnglishGrammarDayChecker.Application.Commands;
 using EnglishGrammarDayChecker.Application.Queries;
+using EnglishGrammarDayChecker.Model.Interfaces;
+using Hangfire;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +12,20 @@ namespace EnglishGrammarDayChecker.Application
     public class GrammarController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly IGrammarTaskUpdaterService _grammarTaskUpdaterService;
 
-        public GrammarController(IMediator mediator)
+        public GrammarController(IMediator mediator, IGrammarTaskUpdaterService grammarTaskUpdaterService)
         {
             _mediator = mediator;
+            _grammarTaskUpdaterService = grammarTaskUpdaterService;
+        }
+        
+        [HttpGet("StartCronUpdateJob")]
+        public IActionResult StartCronUpdateJob()
+        {
+            RecurringJob.AddOrUpdate(nameof(IGrammarTaskUpdaterService),
+                () => _grammarTaskUpdaterService.UpdateGrammarTasksToUndone(), Cron.Minutely);
+            return Ok();
         }
         
         [HttpGet]

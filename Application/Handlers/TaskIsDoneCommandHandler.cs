@@ -15,6 +15,8 @@ public class TaskIsDoneCommandHandler : IRequestHandler<TaskIsDoneCommand>
 
     public async Task Handle(TaskIsDoneCommand request, CancellationToken cancellationToken)
     {
+        //TODO: Need to make counter + 1, when it is done
+        // Also need to support when u're trying to press "IsDone" a lot of times and counter will update only 1 time.
         await _grammarTaskRepository.TaskIsDone(request.TaskId);
     }
 }

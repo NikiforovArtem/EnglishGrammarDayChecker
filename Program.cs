@@ -1,5 +1,8 @@
 using EnglishGrammarDayChecker.Infrastructure;
 using EnglishGrammarDayChecker.Model.Interfaces;
+using Hangfire;
+using Hangfire.Storage.SQLite;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +15,14 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblyContaining(typeof(Program));
 });
 
+builder.Services.AddHangfire(configuration => configuration
+    .UseSimpleAssemblyNameTypeSerializer()
+    .UseRecommendedSerializerSettings()
+    .UseSQLiteStorage(builder.Configuration.GetConnectionString("SqlLite")));
+builder.Services.AddHangfireServer();
+
 builder.Services.AddScoped<IGrammarTaskRepository, GrammarTaskRepository>();
+builder.Services.AddSingleton<IGrammarTaskUpdaterService, GrammarTaskUpdaterService>();
 
 var app = builder.Build();
 
@@ -24,5 +34,7 @@ if (builder.Environment.IsDevelopment())
 }
 
 app.MapControllers();
+app.MapHangfireDashboard();
 
 app.Run();
+

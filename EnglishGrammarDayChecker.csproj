@@ -9,6 +9,8 @@
 
     <ItemGroup>
       <PackageReference Include="Dapper" Version="2.0.151" />
+      <PackageReference Include="Hangfire" Version="1.8.5" />
+      <PackageReference Include="Hangfire.Storage.SQLite" Version="0.3.4" />
       <PackageReference Include="MediatR" Version="12.1.1" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
@@ -37,6 +39,12 @@
       <_ContentIncludedByDefault Remove="SqlLiteCreator\obj\project.assets.json" />
       <_ContentIncludedByDefault Remove="SqlLiteCreator\obj\project.packagespec.json" />
       <_ContentIncludedByDefault Remove="SqlLiteCreator\obj\SqlLiteCreator.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="GrammarTasksUpdater\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="GrammarTasksUpdater\appsettings.json" />
+      <_ContentIncludedByDefault Remove="GrammarTasksUpdater\obj\GrammarTasksUpdater.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="GrammarTasksUpdater\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="GrammarTasksUpdater\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="GrammarTasksUpdater\Properties\launchSettings.json" />
     </ItemGroup>
 
 </Project>

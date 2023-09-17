@@ -9,6 +9,34 @@
 
     <ItemGroup>
       <PackageReference Include="Dapper" Version="2.0.151" />
+      <PackageReference Include="MediatR" Version="12.1.1" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.118" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="SqlLiteCreator\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="SqlLiteCreator\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="SqlLiteCreator\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="SqlLiteCreator\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="SqlLiteCreator\bin\Debug\net6.0\SqlLiteCreator.deps.json" />
+      <_ContentIncludedByDefault Remove="SqlLiteCreator\bin\Debug\net6.0\SqlLiteCreator.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="SqlLiteCreator\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="SqlLiteCreator\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="SqlLiteCreator\obj\SqlLiteCreator.csproj.nuget.dgspec.json" />
     </ItemGroup>
 
 </Project>

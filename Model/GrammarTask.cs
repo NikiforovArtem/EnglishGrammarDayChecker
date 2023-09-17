@@ -1,20 +1,31 @@
 ﻿namespace EnglishGrammarDayChecker.Model;
 
 public class GrammarTask
-{
-    public string Id { get; set; }
+{ 
+    public GrammarTask(string name, string URL)
+    {
+        Id = Guid.NewGuid().ToString();
+        CreatedDateTime = DateTimeOffset.Now;
+        Name = name;
+        this.URL = URL;
+        IsDoneToday = false;
+        IsLearned = false;
+        TotalCompletionsCount = 0;
+    }
     
-    public bool IsDoneToday { get; set; }
+    public string Id { get; }
     
-    public string URL { get; set; }
+    public bool IsDoneToday { get; private set; } 
     
-    public bool IsLearned { get; set; }
+    public string URL { get; }
     
-    public string Name { get; set; }
+    public bool IsLearned { get; }
     
-    public DateTimeOffset CreatedDateTime { get; set; }
+    public string Name { get; }
     
-    public DateTimeOffset LastCompletionDateTime { get; set; }
+    public DateTimeOffset CreatedDateTime { get; }
     
-    public int TotalCompletionsCount { get; set; }
+    public DateTimeOffset? LastCompletionDateTime { get; private set; }
+    
+    public int TotalCompletionsCount { get; private set; }
 }

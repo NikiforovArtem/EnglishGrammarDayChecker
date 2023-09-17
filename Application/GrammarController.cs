@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EnglishGrammarDayChecker.Application.Commands;
+using EnglishGrammarDayChecker.Application.Queries;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EnglishGrammarDayChecker.Application
 {
@@ -6,46 +9,49 @@ namespace EnglishGrammarDayChecker.Application
     [Route("grammar")]
     public class GrammarController : ControllerBase
     {
-        public GrammarController()
-        { 
+        private readonly IMediator _mediator;
+
+        public GrammarController(IMediator mediator)
+        {
+            _mediator = mediator;
         }
         
         [HttpGet]
-        public async Task<IActionResult> GetActualGrammarTasks()
+        [Route("actual")]
+        [ProducesResponseType(typeof(IReadOnlyCollection<GrammarTaskViewModel>), StatusCodes.Status200OK)]
+        public async Task<ActionResult<IReadOnlyCollection<GrammarTaskViewModel>>> GetActualGrammarTasks()
         {
-            try
-            {
-                if (incomingMessage.Type is UpdateType.Message)
-                {
-                    
-                    await this.messageHandler.HandleTelegramMessageAsync(incomingMessage.Message);
-                }s
-            }
-            catch (Exception e)
-            {
-                // Only for debug. Chat id can use only in controller layer. Filters dont get it
-                await botClient.SendTextMessageAsync(
-                    chatId: incomingMessage.Message.Chat.Id,
-                    text: $"Произошла ошибка при отправке сообщения '{incomingMessage.Message.Text}'. Message={e.Message};StackTrace={e.StackTrace}");
-            }
+            var actualGrammarTasks = await _mediator.Send(new GetActualGrammarTaskQuery());
+            
+            return Ok(actualGrammarTasks);
+        }
+        
+        [HttpPost]
+        [Route("save")]
+        public async Task<IActionResult> SaveNewGrammarTask([FromBody] CreateNewGrammarTaskCommand command)
+        { 
+            await _mediator.Send(command);
             
             return Ok();
         }
         
         [HttpPost]
-        public async Task<IActionResult> SaveNewGrammarTask()
+        [Route("done")]
+        public async Task<IActionResult> TasksIsDone(TaskIsDoneCommand command)
         {
+            await _mediator.Send(command);
+            
+            return Ok();
         }
-
-        [HttpPost]
-        public async Task<IActionResult> TasksIsDone(IReadOnlyCollection<Guid> tasksIds)
-        {
-        }
+        
+        /*[HttpPost]
         
         //TODO: some filtration by day, by count and etc
         [HttpPost]
         public async Task<IActionResult> GetStatistic()
         {
-        }
+            throw new NotImplementedException();
+
+        }*/
     }
 }

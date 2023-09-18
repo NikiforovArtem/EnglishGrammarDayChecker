@@ -23,7 +23,7 @@ public class GetActualGrammarTaskQueryHandler : IRequestHandler<GetActualGrammar
         SqlMapper.AddTypeHandler(DateTimeHandler.Default);
 
         var result = await connection.QueryAsync<GrammarTaskViewModel>(
-            @"select Id, TotalCompletionsCount, Name, IsLearned, URL, IsDoneToday  from GrammarTask where IsDoneToday = 0"
+            @"select Id, TotalCompletionsCount, Name, IsLearned, URL, IsDoneToday  from GrammarTask"
         );
 
         return result.ToList();

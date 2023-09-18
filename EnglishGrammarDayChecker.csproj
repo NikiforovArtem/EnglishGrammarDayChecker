@@ -20,18 +20,22 @@
 
     <ItemGroup>
       <Compile Remove="SqlLiteCreator\**" />
+      <Compile Remove="FrontEnd\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="SqlLiteCreator\**" />
+      <EmbeddedResource Remove="FrontEnd\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="SqlLiteCreator\**" />
+      <None Remove="FrontEnd\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Remove="SqlLiteCreator\**" />
+      <Content Remove="FrontEnd\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -46,6 +50,9 @@
       <_ContentIncludedByDefault Remove="GrammarTasksUpdater\obj\project.assets.json" />
       <_ContentIncludedByDefault Remove="GrammarTasksUpdater\obj\project.packagespec.json" />
       <_ContentIncludedByDefault Remove="GrammarTasksUpdater\Properties\launchSettings.json" />
+      <_ContentIncludedByDefault Remove="FrontEnd\english-grammar-tasks\package-lock.json" />
+      <_ContentIncludedByDefault Remove="FrontEnd\english-grammar-tasks\package.json" />
+      <_ContentIncludedByDefault Remove="FrontEnd\english-grammar-tasks\public\manifest.json" />
     </ItemGroup>
 
 </Project>

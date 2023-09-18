@@ -74,6 +74,7 @@ function App() {
     <tr>
       <th>Task Name</th>
       <th>URL</th>
+      <th>Total completions count</th>
       <th>Is Done Today</th>
       <th>Action</th>
     </tr>
@@ -83,6 +84,7 @@ function App() {
       <tr key={task.id}>
         <td>{task.name}</td>
         <td>{task.url}</td>
+        <td>{task.totalCompletionsCount}</td>
         <td>{task.isDoneToday ? 'Yes' : 'No'}</td>
         <td>
         {task.isDoneToday ? '' : <button onClick={() => updateTask(task.id)}>Mark as Done</button>}

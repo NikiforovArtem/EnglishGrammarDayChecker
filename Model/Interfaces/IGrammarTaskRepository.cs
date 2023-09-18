@@ -2,7 +2,11 @@
 
 public interface IGrammarTaskRepository
 {
+    Task<bool> TaskIsAlreadyDone(string taskId);
+    
     Task<string> SaveNewGrammarTask(GrammarTask grammarTask);
     
-    Task TaskIsDone(string taskId);
+    Task UpdateTaskToDone(string taskId);
+    
+    Task UpdateTotalCompletionCount(string taskId);
 }

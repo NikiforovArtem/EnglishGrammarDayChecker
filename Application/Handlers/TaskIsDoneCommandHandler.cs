@@ -15,8 +15,17 @@ public class TaskIsDoneCommandHandler : IRequestHandler<TaskIsDoneCommand>
 
     public async Task Handle(TaskIsDoneCommand request, CancellationToken cancellationToken)
     {
-        //TODO: Need to make counter + 1, when it is done
-        // Also need to support when u're trying to press "IsDone" a lot of times and counter will update only 1 time.
-        await _grammarTaskRepository.TaskIsDone(request.TaskId);
+        //TODO: Need to get GrammarTask domain aggregate and work with it
+        if (await _grammarTaskRepository.TaskIsAlreadyDone(request.TaskId))
+        {
+            return;
+        }
+        
+        //TODO: it could be implement through DomainsEvents, and it should be at the one transaction
+        // TODO: i'd like to made it with EF. Domain aggregate will has methods like setTaskIsDone and after that 
+        // it will send domain event TaskIsUpdateToDone then will updated totalCounter in domainEvent Handler
+        // and ofcourse these actions should be joined in UnitOfWork for one atomic operation in DB.
+        await _grammarTaskRepository.UpdateTaskToDone(request.TaskId);
+        await _grammarTaskRepository.UpdateTotalCompletionCount(request.TaskId);
     }
 }

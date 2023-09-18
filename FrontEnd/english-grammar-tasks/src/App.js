@@ -85,7 +85,7 @@ function App() {
         <td>{task.url}</td>
         <td>{task.isDoneToday ? 'Yes' : 'No'}</td>
         <td>
-        <button onClick={() => updateTask(task.id)}>Mark as Done</button>
+        {task.isDoneToday ? '' : <button onClick={() => updateTask(task.id)}>Mark as Done</button>}
         </td>
       </tr>
     ))}

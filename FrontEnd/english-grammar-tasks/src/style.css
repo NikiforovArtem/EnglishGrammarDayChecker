@@ -1,0 +1,224 @@
+/* styles.css */
+.App {
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* styles.css */
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #555;
+    margin: 20px 0;
+  }
+  
+  h3 {
+    font-size: 20px;
+    color: #777;
+    margin: 10px 0;
+  }
+
+  /* styles.css */
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #555;
+    margin: 20px 0;
+  }
+  
+  h3 {
+    font-size: 20px;
+    color: #777;
+    margin: 10px 0;
+  }
+ 
+  /* styles.css */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  /* styles.css */
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 10px;
+  }
+  
+  input[type="text"]:last-child {
+    margin-right: 0;
+  }
+  
+  button {
+    font-size: 14px;
+    border-radius: 3px;
+  }
+
+  /* styles.css */
+li span {
+    padding: 5px 10px;
+    background-color: #d9edf7;
+    color: #31708f;
+    border-radius: 3px;
+    font-weight: bold;
+  }
+
+  /* styles.css */
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .task-table th,
+  .task-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .task-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+  }
+  
+  .task-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .task-table tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* styles.css */
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+  }
+  
+/* styles.css */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center; /* Align the content in the center */
+  }
+  
+  /* Ensure the inputs are block-level elements */
+  .modal-content input[type="text"] {
+    display: block;
+    margin: 10px auto; /* Adjust as needed for spacing */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 80%; /* Adjust the width as needed */
+  }
+  
+  /* Apply styles to the button */
+  .modal-content button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-top: 10px; /* Add margin for spacing */
+  }
+  
+  .modal-content button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* styles.css */
+.create-button {
+    position: fixed;
+    top: 10px; /* Adjust as needed for your desired vertical position */
+    right: 10px; /* Adjust as needed for your desired horizontal position */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  .create-button:hover {
+    background-color: #0056b3;
+  }
+  
+  

@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  englishGrammarTaskFE:
+    image: english-grammar-front
+    container_name: englishGrammarTaskFE
+    build:
+      context: .
+      dockerfile: ./FrontEnd/english-grammar-tasks/Dockerfile
+    ports:
+      - 3001:3000
+    environment:
+      - REACT_APP_API_URL=http://localhost:2266
+  englishGrammarTaskBE:
+    image: english-grammar-task-back
+    container_name: englishGrammarTaskBE
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - "./Data Source=EnglishGrammarDayCheckerDb.sqlite:/app/Data Source=EnglishGrammarDayCheckerDb.sqlite"
+      - "./EnglishGrammarDayCheckerDb.sqlite:/app/EnglishGrammarDayCheckerDb.sqlite"
+    ports:
+      - 2266:80

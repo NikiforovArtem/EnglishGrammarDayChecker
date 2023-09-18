@@ -1,6 +1,7 @@
 using EnglishGrammarDayChecker.Infrastructure;
 using EnglishGrammarDayChecker.Model.Interfaces;
 using Hangfire;
+using Hangfire.Dashboard;
 using Hangfire.Storage.SQLite;
 
 
@@ -15,6 +16,11 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblyContaining(typeof(Program));
 });
 
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
 builder.Services.AddHangfire(configuration => configuration
     .UseSimpleAssemblyNameTypeSerializer()
     .UseRecommendedSerializerSettings()
@@ -26,14 +32,16 @@ builder.Services.AddSingleton<IGrammarTaskUpdaterService, GrammarTaskUpdaterServ
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (builder.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 
+
+app.UseCors("corsapp");
 app.MapControllers();
+
+app.UseHangfireDashboard("/jobs", new DashboardOptions()
+{ Authorization = new[] { new LocalRequestsOnlyAuthorizationFilter() } });
 app.MapHangfireDashboard();
 
 app.Run();

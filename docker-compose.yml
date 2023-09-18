@@ -18,7 +18,6 @@ services:
       context: .
       dockerfile: ./Dockerfile
     volumes:
-      - "./Data Source=EnglishGrammarDayCheckerDb.sqlite:/app/Data Source=EnglishGrammarDayCheckerDb.sqlite"
       - "./EnglishGrammarDayCheckerDb.sqlite:/app/EnglishGrammarDayCheckerDb.sqlite"
     ports:
       - 2266:80

@@ -24,7 +24,7 @@ namespace EnglishGrammarDayChecker.Application
         public IActionResult StartCronUpdateJob()
         {
             RecurringJob.AddOrUpdate(nameof(IGrammarTaskUpdaterService),
-                () => _grammarTaskUpdaterService.UpdateGrammarTasksToUndone(), Cron.Minutely);
+                () => _grammarTaskUpdaterService.UpdateGrammarTasksToUndone(), "0 0 * * *", new RecurringJobOptions { TimeZone = TimeZoneInfo.Local});
             return Ok();
         }
         

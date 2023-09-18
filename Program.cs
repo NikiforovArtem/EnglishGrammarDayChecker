@@ -2,6 +2,7 @@ using EnglishGrammarDayChecker.Infrastructure;
 using EnglishGrammarDayChecker.Model.Interfaces;
 using Hangfire;
 using Hangfire.Dashboard;
+using Hangfire.Dashboard.BasicAuthorization;
 using Hangfire.Storage.SQLite;
 
 
@@ -24,7 +25,7 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 builder.Services.AddHangfire(configuration => configuration
     .UseSimpleAssemblyNameTypeSerializer()
     .UseRecommendedSerializerSettings()
-    .UseSQLiteStorage(builder.Configuration.GetConnectionString("SqlLite")));
+    .UseSQLiteStorage(builder.Configuration.GetConnectionString("HangfireSqlLite")));
 builder.Services.AddHangfireServer();
 
 builder.Services.AddScoped<IGrammarTaskRepository, GrammarTaskRepository>();
@@ -40,8 +41,24 @@ var app = builder.Build();
 app.UseCors("corsapp");
 app.MapControllers();
 
-app.UseHangfireDashboard("/jobs", new DashboardOptions()
-{ Authorization = new[] { new LocalRequestsOnlyAuthorizationFilter() } });
+app.UseHangfireDashboard("/hangfire",new DashboardOptions
+{
+    Authorization = new[] { new BasicAuthAuthorizationFilter(new BasicAuthAuthorizationFilterOptions
+    {
+        RequireSsl = false,
+        SslRedirect = false,
+        LoginCaseSensitive = true,
+        Users = new []
+        {
+            new BasicAuthAuthorizationUser
+            {
+                Login = "admin",
+                PasswordClear =  "test"
+            } 
+        }
+
+    }) }
+});
 app.MapHangfireDashboard();
 
 app.Run();

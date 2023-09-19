@@ -63,13 +63,24 @@ function App() {
     }
   };
 
-
   return (
-    <div className="App">
-      <h1>English Grammar Tasks</h1>
+    <div className="app-container">
+      <header className="header">
+        <h1 className="title">English Grammar Tasks</h1>
+        <nav className="nav">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+      </header>
 
-      <h2>Actual Tasks</h2>
-<table className="task-table">
+      <main className="main-content">
+      <div className="create-button-container">
+          <button className="create-button" onClick={toggleModal}>
+            +
+          </button>
+        </div>
+        <table className="task-table">
   <thead>
     <tr>
       <th>Task Name</th>
@@ -83,27 +94,28 @@ function App() {
     {tasks.map((task) => (
       <tr key={task.id}>
         <td>{task.name}</td>
-        <td>{task.url}</td>
+        <td><href>{task.url}</href></td>
         <td>{task.totalCompletionsCount}</td>
         <td>{task.isDoneToday ? 'Yes' : 'No'}</td>
         <td>
-        {task.isDoneToday ? '' : <button onClick={() => updateTask(task.id)}>Mark as Done</button>}
+        {task.isDoneToday ? '' : <button className="create-button" onClick={() => updateTask(task.id)}>Done</button>}
         </td>
       </tr>
     ))}
   </tbody>
 </table>
-     {/* Button to open the modal */}
-     <button className="create-button" onClick={toggleModal}>Create New Task</button>
+      </main>
 
-{/* Render the modal conditionally */}
-{showModal && (
-  <NewTaskModal
-    onClose={toggleModal}
-    onCreateTask={fetchTasks}
-  />
-)}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <NewTaskModal onClose={toggleModal} onCreateTask={fetchTasks} />
+          </div>
+        </div>
+      )}
     </div>
   );
     }
+
+    
 export default App;

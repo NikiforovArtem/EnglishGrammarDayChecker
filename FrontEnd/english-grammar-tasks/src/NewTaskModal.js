@@ -32,23 +32,34 @@ function NewTaskModal({ onClose, onCreateTask }) {
   return (
     <div className="modal">
       <div className="modal-content">
-        <span className="close" onClick={onClose}>
+      
+      <div className='modal-header'>
+      Create New Task
+      <button className="close-button" onClick={onClose}>
           &times;
-        </span>
-        <h3>Create New Task</h3>
-        <input
+        </button>
+        
+        </div>
+      <div className="input-container">
+          <input
+            type="text"
+            id="taskName"
+            placeholder="Name"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+          />
+        </div>
+        <div className="input-container">
+          <input
           type="text"
-          placeholder="Task Name"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Task URL"
+          placeholder="URL"
           value={newTaskURL}
           onChange={(e) => setNewTaskURL(e.target.value)}
         />
-        <button onClick={createTask}>Create Task</button>
+        </div>
+        <div className="input-container-button" style={{ textAlign: 'right' }}>
+        <button className='create-button-modal' onClick={createTask}>Create Task</button>
+        </div>
       </div>
     </div>
   );

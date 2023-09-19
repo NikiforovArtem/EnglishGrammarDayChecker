@@ -1,224 +1,203 @@
-/* styles.css */
-.App {
-    text-align: center;
-    padding: 20px;
-  }
+/* App.css */
+body, html {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
-  /* styles.css */
-h1 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    font-size: 24px;
-    color: #555;
-    margin: 20px 0;
-  }
-  
-  h3 {
-    font-size: 20px;
-    color: #777;
-    margin: 10px 0;
-  }
+.header {
+  background-color: #1e46be;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  /* styles.css */
-h1 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    font-size: 24px;
-    color: #555;
-    margin: 20px 0;
-  }
-  
-  h3 {
-    font-size: 20px;
-    color: #777;
-    margin: 10px 0;
-  }
- 
-  /* styles.css */
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
+.logo img {
+  height: 40px;
+}
 
-  /* styles.css */
-input[type="text"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-right: 10px;
-  }
-  
-  input[type="text"]:last-child {
-    margin-right: 0;
-  }
-  
-  button {
-    font-size: 14px;
-    border-radius: 3px;
-  }
+.title {
+  font-size: 28px;
+  margin: 0;
+  flex-grow: 1; /* Center the title in the header */
+}
 
-  /* styles.css */
-li span {
-    padding: 5px 10px;
-    background-color: #d9edf7;
-    color: #31708f;
-    border-radius: 3px;
-    font-weight: bold;
-  }
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
 
-  /* styles.css */
+.nav a:hover {
+  color: #61dafb;
+}
+
+.main-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+}
+
+.create-button-container {
+  align-self: flex-end; /* Position the button to the right corner */
+  margin-bottom: 10px;
+}
+
+.create-button-modal {
+  background-color: #1e46be;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  align-items: right;
+  transition: background-color 0.2s ease-in-out;
+}
+
+
+
+.create-button:hover {
+  background-color: #4fa3d5;
+}
+
+.subtitle {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.table-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the table horizontally */
+}
+
 .task-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .task-table th,
-  .task-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-  }
-  
-  .task-table th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-  }
-  
-  .task-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .task-table tbody tr:hover {
-    background-color: #e0e0e0;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* styles.css */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-table th,
+.task-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.task-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.task-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.task-table tbody tr:hover {
+  background-color: #e5e5e5;
+}
+
+/* App.css */
+/* ... (your existing styles) */
+
+
 .modal {
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow: auto;
-  }
-  
-/* styles.css */
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(40, 37, 37, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    border-radius: 5px;
-    width: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    text-align: center; /* Align the content in the center */
-  }
-  
-  /* Ensure the inputs are block-level elements */
-  .modal-content input[type="text"] {
-    display: block;
-    margin: 10px auto; /* Adjust as needed for spacing */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    width: 80%; /* Adjust the width as needed */
-  }
-  
-  /* Apply styles to the button */
-  .modal-content button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 14px;
-    margin-top: 10px; /* Add margin for spacing */
-  }
-  
-  .modal-content button:hover {
-    background-color: #0056b3;
-  }
-  
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  /* styles.css */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  padding: 50px;
+  z-index: 1001;
+  flex-direction: vertical;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.modal-title {
+  font-size: 24px;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+.input-container-button {
+  align-content: right; /* Position the button to the right corner */
+  margin-bottom: 10px;
+}
+
+.input-container input,
+.input-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .create-button {
-    position: fixed;
-    top: 10px; /* Adjust as needed for your desired vertical position */
-    right: 10px; /* Adjust as needed for your desired horizontal position */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 14px;
-  }
-  
-  .create-button:hover {
-    background-color: #0056b3;
-  }
-  
-  
+  background-color: #1e46be;
+  color: #fff;
+  border: none;
+  width: 60px; /* Set the width to make it square */
+  height: 30px; /* Set the height to make it square */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+.create-button:hover {
+  background-color: #4fa3d5;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+  align-items: left;
+  transition: color 0.3s ease-in-out;
+}
+
+.close-button:hover {
+  color: #f00; /* Change color on hover */
+}
+
+/* ... (your existing styles) */
+

@@ -3,4 +3,4 @@ Also i can add them through simple web-form where i enter the name and URL of th
 
 If u'd like to see it u can go to root of repo and use 'docker compose up' comand. 
 
-Tech stack: .net7/c#, sqlite - database (i've used dapper as orm), front-end - react (actually, chat-gpt 3.5 have almost writen all the fron-end code and styles), hangfire library for scheduling taks.
+Tech stack: .net7/c#, sqlite - database (i've used dapper as orm), front-end - react (actually, chat-gpt 3.5 have almost writen all the fron-end code and styles), hangfire library for tasks scheduling.
